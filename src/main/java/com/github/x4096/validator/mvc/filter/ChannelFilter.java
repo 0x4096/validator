@@ -1,6 +1,7 @@
 package com.github.x4096.validator.mvc.filter;
 
 import com.github.x4096.validator.mvc.wrapper.BodyReaderHttpServletRequestWrapper;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.*;
@@ -15,6 +16,7 @@ import java.io.IOException;
  * @readme
  */
 @Component
+@ConditionalOnProperty(prefix = "x4096.validator", value = {"enable"}, havingValue = "true", matchIfMissing = false)
 public class ChannelFilter implements Filter {
 
     @Override
